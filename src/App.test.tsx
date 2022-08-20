@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "./utility/test-utils";
 import App from "./App";
 
 describe("Given a Login component", () => {
