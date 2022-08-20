@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "../../utility/test-utils";
 import Login from "./Login";
 
 describe("Given a Login component", () => {
@@ -10,6 +11,20 @@ describe("Given a Login component", () => {
       const heading = screen.getByRole("heading", { name: expectHeading });
 
       expect(heading).toBeInTheDocument();
+    });
+  });
+
+  describe("When instantiate labels 'User Name' and 'Password", () => {
+    test("Then should show this labels text", () => {
+      const expectInputUserName = "User Name:";
+      const expectInputPassword = "User Name:";
+
+      render(<Login />);
+      const inputUserName = screen.getByLabelText(expectInputUserName);
+      const inputPassword = screen.getByLabelText(expectInputPassword);
+
+      expect(inputUserName).toBeInTheDocument();
+      expect(inputPassword).toBeInTheDocument();
     });
   });
 });
