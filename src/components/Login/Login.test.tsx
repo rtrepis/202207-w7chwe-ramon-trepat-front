@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import Login from "./Login";
 
 describe("Given a Login component", () => {
-  describe("When  instantiate heading 'Social Network'", () => {
+  describe("When  instantiate heading 'Login'", () => {
     test("Then should show this heading", () => {
-      const expectHeading = "Social Network";
+      const expectHeading = "Login";
 
-      render(<App />);
+      render(<Login />);
       const heading = screen.getByRole("heading", { name: expectHeading });
 
       expect(heading).toBeInTheDocument();

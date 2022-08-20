@@ -5,7 +5,6 @@ const Login = () => {
       <form>
         <div>
           <label htmlFor="userName" className="">
-            {" "}
             User Name:
             <input
               type="text"
@@ -19,7 +18,6 @@ const Login = () => {
         </div>
         <div>
           <label htmlFor="password" className="">
-            {" "}
             Password:
             <input
               type="password"
