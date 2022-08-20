@@ -4,13 +4,13 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { fetchToken } from "../utility/auth";
 import { userLogInAction, userLogOutAction } from "../app/userSlice";
 
-export const useLogin = () => {
-  const url = process.env.SOCIAL_NETWORK_API_URL as string;
+export const useUser = () => {
+  const url = process.env.REACT_APP_API_URL;
 
   const dispatch = useDispatch();
 
   const userLogIn = async (userData: ProtoUser) => {
-    const response = await fetch(url + "users/login/", {
+    const response = await fetch(`${url}users/login/`, {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {
@@ -24,7 +24,6 @@ export const useLogin = () => {
     const user = fetchToken(token);
 
     dispatch<PayloadAction<User>>(userLogInAction(user));
-
     localStorage.setItem("userToken", user.token);
   };
 
@@ -34,25 +33,8 @@ export const useLogin = () => {
     localStorage.removeItem("token");
   };
 
-  const userRegister = async (formData: FormData) => {
-    try {
-      const response = await fetch(url + "users/register/", {
-        method: "POST",
-        body: formData,
-      });
-      const userData = await response.json();
-
-      if (userData.userName) {
-        console.log(`Registrado ${userData.userName}`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return {
     userLogIn,
     userLogOut,
-    userRegister,
   };
 };

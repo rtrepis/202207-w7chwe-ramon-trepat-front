@@ -1,6 +1,6 @@
 export interface ProtoUser {
   userName: string;
-  passwd: string;
+  password: string;
 }
 
 export interface User {
