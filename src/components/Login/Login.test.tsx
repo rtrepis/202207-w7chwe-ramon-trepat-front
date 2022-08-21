@@ -16,8 +16,8 @@ describe("Given a Login component", () => {
 
   describe("When instantiate labels 'User Name' and 'Password", () => {
     test("Then should show this labels text", () => {
-      const expectInputUserName = "User Name:";
-      const expectInputPassword = "User Name:";
+      const expectInputUserName = "User Name";
+      const expectInputPassword = "Password";
 
       render(<Login />);
       const inputUserName = screen.getByLabelText(expectInputUserName);

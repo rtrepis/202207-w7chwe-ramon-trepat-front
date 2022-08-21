@@ -1,5 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { useUser } from "../../hooks/useUser";
+import LoginStyled from "./LoginStyled";
 
 const Login = () => {
   const { userLogIn } = useUser();
@@ -25,13 +26,14 @@ const Login = () => {
   };
 
   return (
-    <>
-      <h2>Login</h2>
-      <form onSubmit={handleUserLogInFormSubmit}>
-        <div>
-          <label htmlFor="userName" className="">
-            User Name:
+    <LoginStyled>
+      <form onSubmit={handleUserLogInFormSubmit} className="login-form">
+        <h2 className="login-title">Login</h2>
+        <div className="input">
+          <label htmlFor="userName" className="input__label">
+            User Name{"\n"}
             <input
+              className="input__textBox"
               type="text"
               id="userName"
               name="userName"
@@ -43,10 +45,11 @@ const Login = () => {
             />
           </label>
         </div>
-        <div>
-          <label htmlFor="password" className="">
-            Password:
+        <div className="input">
+          <label htmlFor="password" className="input__label">
+            Password{"\n"}
             <input
+              className="input__textBox"
               type="password"
               id="password"
               name="password"
@@ -58,9 +61,10 @@ const Login = () => {
             />
           </label>
         </div>
+
         <button type="submit">Login</button>
       </form>
-    </>
+    </LoginStyled>
   );
 };
 
