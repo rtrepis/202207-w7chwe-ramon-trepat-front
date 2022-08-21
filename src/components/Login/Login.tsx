@@ -26,8 +26,8 @@ const Login = () => {
   };
 
   return (
-    <LoginStyled>
-      <form onSubmit={handleUserLogInFormSubmit} className="login-form">
+    <LoginStyled onSubmit={handleUserLogInFormSubmit}>
+      <div className="login-form">
         <h2 className="login-title">Login</h2>
         <div className="input">
           <label htmlFor="userName" className="input__label">
@@ -63,7 +63,7 @@ const Login = () => {
         </div>
 
         <button type="submit">Login</button>
-      </form>
+      </div>
     </LoginStyled>
   );
 };
